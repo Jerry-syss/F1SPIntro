@@ -1,0 +1,30 @@
+body
+{
+    background-image:linear-gradient(to right,#845ec2,#d65db1,#ff6f91,#ff9671,#ffc75f,#f9f871);
+}
+h1
+{
+    font-family: sans-serif;
+    text-align: center;
+}
+img
+{
+    display: block;
+    margin: auto;
+    border-radius: 15px;
+}
+button
+{
+    display:block;
+    margin: auto;
+    width:15cm;
+    height:1cm;
+    font-family: sans-serif;
+    background-color:skyblue;
+    border-radius: 7px;
+    border-style: none;
+}
+button:hover
+{
+    background-color:rgb(135, 215, 235)
+}
