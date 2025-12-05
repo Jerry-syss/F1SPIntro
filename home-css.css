@@ -1,0 +1,28 @@
+body
+{
+    background-image:linear-gradient(to right,#845ec2,#d65db1,#ff6f91,#ff9671,#ffc75f,#f9f871);
+}
+h1
+{
+    text-align: center;
+    font-family:Sans-Serif;
+}
+button
+{
+    display:block;
+    margin: auto;
+    width:15cm;
+    height:1cm;
+    font-family: sans-serif;
+    background-color:none;
+    border-radius: 7px;
+    border-style: none;
+}
+button:hover
+{
+  background-color:skyblue;
+}
+button:active
+{
+  background-color:orangered;
+}
