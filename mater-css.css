@@ -25,11 +25,11 @@ main
 }
 aside
 {
-  background-color: white;
   width: 20%;
   height: 50cm;
   border-radius: 7px;
   font-family: Sans-Serif;
+  background-image:linear-gradient(to bottom, rgba(132, 94, 194, 0.9), rgba(214, 93, 177, 0.9), rgba(255, 111, 145, 0.9), rgba(255, 150, 113, 0.9), rgba(255, 199, 95, 0.9), rgba(249, 248, 113, 0.9));
 }
 #div
 {
