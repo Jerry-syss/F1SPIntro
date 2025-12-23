@@ -25,5 +25,8 @@ img
 }
 #noscripttouse
 {
-    
+    width: 354px;
+    height: 1cm;
+    border-radius: 7px;
+    background-color: aliceblue;
 }
