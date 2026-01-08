@@ -33,16 +33,7 @@ button:active
 }
 .two
 {
-    width: 188px;
-    height: 1cm;
-    border-radius: 7px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-#noscripttouse
-{
-    width: 354px;
+    width: 500px;
     height: 1cm;
     border-radius: 7px;
     display: block;
