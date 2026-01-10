@@ -1,7 +1,7 @@
 function showTime()
 {
     var nowTime_GMT = new Date();
-    var nowTime = new Date().toUTCString();
+    var nowTime = nowTime_GMT.toString().replace(/\sGMT.*$/,"");
     var nowHour = nowTime_GMT.getHours() + 1;
     if(nowHour > 3 && nowHour <= 6)
     {
