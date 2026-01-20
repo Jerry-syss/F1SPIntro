@@ -1,7 +1,10 @@
+/*body start*/
 body
 {
     background-image: linear-gradient(to right,#845ec2,#d65db1,#ff6f91,#ff9671,#ffc75f,#f9f871);
 }
+/*body end*/
+/*header start*/
 header
 {
     background-color: white;
@@ -14,17 +17,20 @@ header
     display: flex;
     justify-content: space-between; 
     align-items: center; /* Vertically centers the text */
-    /*End*/
-    #time
-    {
-        font-family: sans-serif;
-        margin-right: 15px;
-    }
-    #header_title
-    {
-        margin-left: 15px;
-    }
+    /*End*/  
+    
 }
+#time
+{
+    font-family: sans-serif;
+    margin-right: 15px;
+}
+#header_title
+{
+    margin-left: 15px;
+}
+/*header end*/
+/*siderbar start*/
 #sidebar
 {
     display: inline;
@@ -89,6 +95,7 @@ button:active
    font-family: Sans-Serif;
    font-size: 110%;
 }
+/*siderbar end*/
 aside
 {
     display: inline;
@@ -99,3 +106,4 @@ main
     margin-left: 200px; /* This pushes the main content to the right of the sidebar */
     padding: 20px;
 }
+
