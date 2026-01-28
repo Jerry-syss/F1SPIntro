@@ -5,22 +5,34 @@ body
 #header_all
 {
     display: grid;
-    gap: 1px;    /* 图片之间的间距 */
-    grid-template-columns: 1fr 1fr; /* 默认：手机端 1 列 */
+    grid-template-columns: 1fr;
     background-color: white;
     font-family: sans-serif;
+    border-radius: 5px;
+    padding: 0px 5px;
+
 }
-img
+#time
 {
+    text-align: right;
     display: block;
-    width: 10cm;
+}
+aside
+{
+    background-color: white;
+    width: 1cm;
     height: 10cm;
+    border-radius: 5px;
 }
 @media screen and (max-width: 500px)
 {
     #header_all
     {
         grid-template-columns: 1fr;
+    }
+    #time
+    {
+        display: none;
     }
 }
 @media screen and (min-width: 501px) and (max-width: 1024px)
