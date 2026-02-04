@@ -11,16 +11,20 @@ body {
 
 span {
     font-size: 150%;
+    display: block;
 }
 
 #header {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     width: 100%;
 }
 
-@media screen and (min-width: 601px) {
+@media screen and (max-width: 600px) {
     #header {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+    }
+    #time {
+        display: none;
     }
 }
