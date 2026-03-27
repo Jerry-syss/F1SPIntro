@@ -1,4 +1,6 @@
 var all = document.getElementById('all');
+var title = document.getElementById("title");
+var titleBox = ["Home", "Introduction", "BBQ", "Money", "Calculator", "URL", "NoScript"];
 
 window.onload = function() {
     // 获取URL参数的函数
@@ -8,9 +10,35 @@ window.onload = function() {
 
     if(p) {
         pageChange(p);
+        titleChange(p);
     }
     else {
         pageChange("null");
+        titleChange("null");
+    }
+}
+
+function titleChange(page) {
+    if(page === "h") {
+        document.title = titleBox[0];
+    }
+    if(page === "i") {
+        document.title = titleBox[1];
+    }
+    if(page === "b") {
+        document.title = titleBox[2];
+    }
+    if(page === "m") {
+        document.title = titleBox[3];
+    }
+    if(page === "c") {
+        document.title = titleBox[4];
+    }
+    if(page === "u") {
+        document.title = titleBox[5];
+    }
+    if(page == "null") {
+        document.title = titleBox[0];
     }
 }
 
