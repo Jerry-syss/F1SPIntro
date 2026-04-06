@@ -1,5 +1,4 @@
 var all = document.getElementById('all');
-var title = document.getElementById("title");
 var titleBox = ["Home", "Introduction", "BBQ", "Money", "Calculator", "URL", "NoScript"];
 
 window.onload = function() {
