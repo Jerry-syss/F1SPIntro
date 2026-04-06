@@ -17,7 +17,7 @@ window.onload = function() {
     }
 }
 
-function titleChange(page) {
+var titleChange = (page) => {
     if(page === "h") {
         document.title = titleBox[0];
     }
@@ -39,9 +39,9 @@ function titleChange(page) {
     if(page == "null") {
         document.title = titleBox[0];
     }
-}
+};
 
-function pageChange(page) {
+var pageChange = (page) => {
     if(page === "h") {
         all.innerHTML = home;
     }
@@ -63,4 +63,4 @@ function pageChange(page) {
     if(page == "null") {
         all.innerHTML = home;
     }
-}
+};
