@@ -2,21 +2,53 @@
 <html lang="zh-Hant">
     <head>
         <meta charset="UTF-8">
+        <title>Test</title>
         <link rel="stylesheet" href="./test.css">
         <link rel="stylesheet" href="./index-css.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>大坳門資料 📑</h1>
         <div id="all">
-            <div id="intro">
-                <fieldset>
-                    <legend>大坳門介紹</legend>
-                    <span>大坳門（Tai Au Mun）位於香港新界西貢區清水灣半島南部，
-                        是清水灣道與大坳門路交匯處的著名休閒地點，以大坑墩風箏場、燒烤場及龍蝦灣郊遊徑聞名。
-                        該處擁有大片草地，是野餐、放風箏、遙控模型飛機和觀星的熱門勝地，視野開闊，風景優美。
-                    </span>
-                </fieldset>
+            <div>
+                <h1>大坳門資料📑</h1>
+            </div>
+            <div id="sidebar">
+                <div>
+                    <button type="button" onclick="pageChange('h');titleChange('h');">
+                        <span>🏠</span>
+                        <span class="hoverShowWords">首頁</span>
+                    </button>
+                </div>
+                <div>
+                    <button type="button" onclick="pageChange('i');titleChange('i');">
+                        <span>📑</span>
+                        <span class="hoverShowWords">大坳門資料</span>
+                    </button>
+                </div>
+                <div>
+                    <button type="button" onclick="pageChange('b');titleChange('b');">
+                        <span>🔥</span>
+                        <span class="hoverShowWords">BBQ 資料</span>
+                    </button>
+                </div>
+                <div>
+                    <button type="button" onclick="pageChange('m');titleChange('m');">
+                        <span>💰</span>
+                        <span class="hoverShowWords">價格參考</span>
+                    </button>
+                </div>
+                <div>
+                    <button type="button" onclick="pageChange('c');titleChange('c');">
+                        <span>📱</span>
+                        <span class="hoverShowWords">計算機</span>
+                    </button>
+                </div>
+                <div>
+                    <button type="button" onclick="pageChange('u');titleChange('u');">
+                        <span>📄</span>
+                        <span class="hoverShowWords">系統資料及解難</span>
+                    </button>
+                </div>
             </div>
         </div>
     </body>
