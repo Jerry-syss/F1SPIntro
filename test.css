@@ -38,3 +38,7 @@ button:hover {
 button:hover .hoverShowWords {
     display: inline;
 }
+
+#all_data_intro {
+    margin-left: 250px;
+}
