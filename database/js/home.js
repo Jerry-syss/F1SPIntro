@@ -1,60 +1,29 @@
 // ==========================================
-// 1. 首頁 (Home) - 增加了時間顯示區塊
+// 1. 首頁 (Home)
 // ==========================================
-// ==========================================
-// 2. 簡介頁面 (Introduction) - 詳細修訂版
-// ==========================================
-var intro = subPageStyle + sidebarHTML + `
-    <div class="content-box">
-        <h1>清水灣大坳門資料 📑</h1>
-        
-        <img src="database/other/taiaomun.jpeg" alt="大坳門風箏場草地" style="max-width:100%; height:auto; border-radius:10px; margin-bottom:20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+var home = `
+    <style>
+        h1 {
+            text-align: center;
+            margin: 35px 0 10px 0;
+        }
+        #time-container {
+            text-align: center;
+            color: #555;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+    </style>
 
-        <p>大坳門位於清水灣郊野公園內，是香港著名的放風箏、野餐、郊遊及觀星勝地。這裡被群山環抱，面向浩瀚的南中國海，擁有廣闊的高山大草地，全海景景致讓人心曠神怡，非常適合我們中一級同學進行集體活動與野餐！</p>
-        
-        <h2>📍 景點詳細資料</h2>
-        <ul>
-            <li><strong>主要設施：</strong> 設有大型燒烤區（附設多個燒烤爐）、公共洗手間、小食亭（售賣飲品、小食及風箏）、風箏觀景台。</li>
-            <li><strong>特色活動：</strong> 
-                <ul>
-                    <li>🪁 <strong>放風箏：</strong> 這裡風力長年穩定，是全港最熱門的放風箏地點。</li>
-                    <li>📸 <strong>清水灣觀景台：</strong> 沿草地旁的小徑步行數分鐘即可到達，可遠眺果洲群島及清水灣的壯麗海景。</li>
-                </ul>
-            </li>
-            <li><strong>注意事項：</strong> 山上風勢較大，建議帶備輕便外套；同時請實行「行山垃圾帶回家」，保持郊野公園清潔。</li>
-        </ul>
-
-        <h2>🚌 交通指南</h2>
-        
-        <style>
-            .school-bus-box {
-                background: #e6f7ff;
-                border: 2px dashed #1890ff;
-                border-radius: 8px;
-                padding: 15px;
-                margin-bottom: 20px;
-            }
-            .school-bus-box h3 {
-                color: #0050b3;
-                margin-top: 0;
-                margin-bottom: 8px;
-                display: flex;
-                align-items: center;
-                gap: 5px;
-            }
-        </style>
-        <div class="school-bus-box">
-            <h3>🚌 學校集體旅遊巴安排 (首選)</h3>
-            <p><strong>集合地點：</strong> 學校操場<br>
-            <strong>出發時間：</strong> 請各班同學準時於指定時間集合，旅遊巴將直達清水灣郊野公園停車場。下車後，跟隨老師指示步行約 5-10 分鐘即可到達大草地野餐區。</p>
-        </div>
-
-        <p style="color: #666; font-style: italic;">⚠️ 註：以下公共交通資訊僅供個別遲到、提早離隊或自行往返的同學參考：</p>
-        <ul>
-            <li><strong>九巴 91 號：</strong> 於將軍澳港鐵站 / 坑口港鐵站搭乘，在「大坳門」站下車。隨後需沿清水灣郊野公園路（上坡路）步行約 20 分鐘到達草地。</li>
-            <li><strong>專線小巴 103M 號：</strong> 於坑口站總站搭乘，同樣在「大坳門」路口下車，沿大坳門路步行進入。</li>
-        </ul>
-    </div>
+    <h1>SYSS 中一野餐介紹</h1>
+    <div id="time-container">⏳ 當前時間：<span id="time">載入中...</span></div>
+    <img src="database/other/syss.png" alt="error:404|School Logo">
+    
+    <button type="button" onclick="pageChange('i');titleChange('i');">大坳門資料 📑</button>
+    <button type="button" onclick="pageChange('b');titleChange('b');">BBQ 資料 🔥</button>
+    <button type="button" onclick="pageChange('m');titleChange('m');">價格參考 💰</button>
+    <button type="button" onclick="pageChange('c');titleChange('c');">計算機 📱</button>
+    <button type="button" onclick="pageChange('u');titleChange('u');">系統資料及解難 📄</button>
 `;
 
 // ==========================================
@@ -86,7 +55,7 @@ var subPageStyle = `
         p { line-height: 1.6; color: #444; margin-bottom: 15px; }
         ul { margin-left: 20px; margin-bottom: 15px; line-height: 1.6; color: #444; }
         
-        /* 側邊欄優化修正 */
+        /* 側邊欄懸停展開邏輯優化 */
         #sidebar {
             position: fixed;
             left: 15px;
@@ -132,6 +101,8 @@ var subPageStyle = `
         #sidebar button:hover .hoverShowWords {
             display: inline;
         }
+        
+        /* 手機板響應式優化：側邊欄變到上方頂部 */
         @media screen and (max-width: 600px) {
             .content-box { margin-left: 15px; margin-top: 70px; }
             #sidebar { flex-direction: row; top: 10px; left: 10px; width: calc(100% - 20px); height: 50px; }
@@ -143,25 +114,57 @@ var subPageStyle = `
 `;
 
 // ==========================================
-// 2. 簡介頁面 (Introduction)
+// 2. 簡介頁面 (Introduction) - 詳細旅遊巴修訂版
 // ==========================================
 var intro = subPageStyle + sidebarHTML + `
     <div class="content-box">
         <h1>清水灣大坳門資料 📑</h1>
-        <p>大坳門位於清水灣郊野公園內，是香港著名的放風箏、野餐及觀星勝地。這裡擁有廣闊的大草地，全海景景致讓人心曠神怡。</p>
         
-        <h2>📍 基本資料</h2>
+        <img src="database/other/taiaomun.jpg" alt="大坳門風箏場草地" style="max-width:100%; height:auto; border-radius:10px; margin-bottom:20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+
+        <p>大坳門位於清水灣郊野公園內，是香港著名的放風箏、野餐、郊遊及觀星勝地。這裡被群山環抱，面向浩瀚的南中國海，擁有廣闊的高山大草地，全海景景致讓人心曠神怡，非常適合我們中一級同學進行集體活動與野餐！</p>
+        
+        <h2>📍 景點詳細資料</h2>
         <ul>
-            <li><strong>地點：</strong> 清水灣大坳門清水灣郊野公園</li>
-            <li><strong>設施：</strong> 設有燒烤區、洗手間、小食亭、風箏場及觀景台。</li>
-            <li><strong>適合活動：</strong> 遠足、放風箏、草地野餐、集體遊戲。</li>
+            <li><strong>主要設施：</strong> 設有大型燒烤區（附設多個燒烤爐）、公共洗手間、小食亭（售賣飲品、小食及風箏）、風箏觀景台。</li>
+            <li><strong>特色活動：</strong> 
+                <ul>
+                    <li>🪁 <strong>放風箏：</strong> 這裡風力長年穩定，是全港最熱門的放風箏地點。</li>
+                    <li>📸 <strong>清水灣觀景台：</strong> 沿草地旁的小徑步行數分鐘即可到達，可遠眺果洲群島及清水灣的壯麗海景。</li>
+                </ul>
+            </li>
+            <li><strong>注意事項：</strong> 山上風勢較大，建議帶備輕便外套；同時請實行「行山垃圾帶回家」，保持郊野公園清潔。</li>
         </ul>
 
-        <h2>🚌 交通指南 (學校出發建議)</h2>
-        <p>於將軍澳港鐵站或坑口港鐵站出發：</p>
+        <h2>🚌 交通指南</h2>
+        
+        <style>
+            .school-bus-box {
+                background: #e6f7ff;
+                border: 2px dashed #1890ff;
+                border-radius: 8px;
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+            .school-bus-box h3 {
+                color: #0050b3;
+                margin-top: 0;
+                margin-bottom: 8px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+        </style>
+        <div class="school-bus-box">
+            <h3>🚌 學校集體旅遊巴安排 (首選)</h3>
+            <p><strong>集合地點：</strong> 學校操場<br>
+            <strong>出發時間：</strong> 請各班同學準時於指定時間集合，旅遊巴將直達清水灣郊野公園停車場。下車後，跟隨老師指示步行約 5-10 分鐘即可到達大草地野餐區。</p>
+        </div>
+
+        <p style="color: #666; font-style: italic;">⚠️ 註：以下公共交通資訊僅供個別遲到、提早離隊或自行往返的同學參考：</p>
         <ul>
-            <li>搭乘九巴 <strong>91 號</strong> 線（往清水灣方向），在「大坳門」站下車，隨後沿清水灣郊野公園路步行約 20 分鐘即可到達草地。</li>
-            <li>或於坑口站搭乘綠色專線小巴 <strong>103M 號</strong>，同樣在大坳門路口下車。</li>
+            <li><strong>九巴 91 號：</strong> 於將軍澳港鐵站 / 坑口港鐵站搭乘，在「大坳門」站下車。隨後需沿清水灣郊野公園路（上坡路）步行約 20 分鐘到達草地。</li>
+            <li><strong>專線小巴 103M 號：</strong> 於坑口站總站搭乘，同樣在「大坳門」路口下車，沿大坳門路步行進入。</li>
         </ul>
     </div>
 `;
@@ -228,7 +231,7 @@ var money = subPageStyle + sidebarHTML + `
 `;
 
 // ==========================================
-// 5. 自動計算機 (Calculator) - 具備動態計算功能！
+// 5. 自動計算機 (Calculator)
 // ==========================================
 var calc = subPageStyle + sidebarHTML + `
     <div class="content-box">
@@ -262,32 +265,28 @@ var calc = subPageStyle + sidebarHTML + `
     </div>
 
     <script>
-        // 這段函數會嵌入並在切換到此頁面時或輸入時調用
         function calculatePicnic() {
             var num = parseInt(document.getElementById('peopleCount').value);
             if (isNaN(num) || num <= 0) {
                 num = 0;
             }
             
-            // 計算邏輯
             var wings = num * 3;
             var drinks = num * 2;
-            var charcoal = Math.ceil(num / 4); // 每 4 人一包炭
+            var charcoal = Math.ceil(num / 4); 
             if(charcoal < 1 && num > 0) charcoal = 1;
             
-            // 粗略預算：每人基本食物費 $50 + 雜費
             var totalCost = (num * 50) + (charcoal * 35) + 20; 
             if(num === 0) totalCost = 0;
             var perPerson = num > 0 ? Math.round(totalCost / num) : 0;
 
-            // 渲染到網頁
             document.getElementById('res-wings').innerText = wings;
             document.getElementById('res-drinks').innerText = drinks;
             document.getElementById('res-charcoal').innerText = charcoal;
             document.getElementById('res-total').innerText = totalCost;
             document.getElementById('res-perperson').innerText = perPerson;
         }
-        // 首次加載運行一次
+        // 確保切換到本頁時能立即計算一次
         setTimeout(calculatePicnic, 100);
     </script>
 `;
@@ -298,7 +297,7 @@ var calc = subPageStyle + sidebarHTML + `
 var url = subPageStyle + sidebarHTML + `
     <div class="content-box">
         <h1>系統資料及解難 📄</h1>
-        <p>歡迎使用聖言中學（SYSS）中一野餐資訊系統。本網頁為純前端動態單頁面（SPA）架構，旨在為同學提供最流暢快捷的資訊查閱體驗。</p>
+        <p>歡迎使用西貢崇真天主教學校（SYSS）中一野餐資訊系統。本網頁為純前端動態單頁面（SPA）架構，旨在為同學提供最流暢快捷的資訊查閱體驗。</p>
         
         <h2>❓ 常見問題與解決方法</h2>
         
