@@ -1,29 +1,60 @@
 // ==========================================
 // 1. 首頁 (Home) - 增加了時間顯示區塊
 // ==========================================
-var home = `
-    <style>
-        h1 {
-            text-align: center;
-            margin: 35px 0 10px 0;
-        }
-        #time-container {
-            text-align: center;
-            color: #555;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-        }
-    </style>
+// ==========================================
+// 2. 簡介頁面 (Introduction) - 詳細修訂版
+// ==========================================
+var intro = subPageStyle + sidebarHTML + `
+    <div class="content-box">
+        <h1>清水灣大坳門資料 📑</h1>
+        
+        <img src="database/other/taiaomun.jpeg" alt="大坳門風箏場草地" style="max-width:100%; height:auto; border-radius:10px; margin-bottom:20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
 
-    <h1>SYSS 中一野餐介紹</h1>
-    <div id="time-container">⏳ 當前時間：<span id="time">載入中...</span></div>
-    <img src="database/other/syss.png" alt="error:404|School Logo">
-    
-    <button type="button" onclick="pageChange('i');titleChange('i');">大坳門資料 📑</button>
-    <button type="button" onclick="pageChange('b');titleChange('b');">BBQ 資料 🔥</button>
-    <button type="button" onclick="pageChange('m');titleChange('m');">價格參考 💰</button>
-    <button type="button" onclick="pageChange('c');titleChange('c');">計算機 📱</button>
-    <button type="button" onclick="pageChange('u');titleChange('u');">系統資料及解難 📄</button>
+        <p>大坳門位於清水灣郊野公園內，是香港著名的放風箏、野餐、郊遊及觀星勝地。這裡被群山環抱，面向浩瀚的南中國海，擁有廣闊的高山大草地，全海景景致讓人心曠神怡，非常適合我們中一級同學進行集體活動與野餐！</p>
+        
+        <h2>📍 景點詳細資料</h2>
+        <ul>
+            <li><strong>主要設施：</strong> 設有大型燒烤區（附設多個燒烤爐）、公共洗手間、小食亭（售賣飲品、小食及風箏）、風箏觀景台。</li>
+            <li><strong>特色活動：</strong> 
+                <ul>
+                    <li>🪁 <strong>放風箏：</strong> 這裡風力長年穩定，是全港最熱門的放風箏地點。</li>
+                    <li>📸 <strong>清水灣觀景台：</strong> 沿草地旁的小徑步行數分鐘即可到達，可遠眺果洲群島及清水灣的壯麗海景。</li>
+                </ul>
+            </li>
+            <li><strong>注意事項：</strong> 山上風勢較大，建議帶備輕便外套；同時請實行「行山垃圾帶回家」，保持郊野公園清潔。</li>
+        </ul>
+
+        <h2>🚌 交通指南</h2>
+        
+        <style>
+            .school-bus-box {
+                background: #e6f7ff;
+                border: 2px dashed #1890ff;
+                border-radius: 8px;
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+            .school-bus-box h3 {
+                color: #0050b3;
+                margin-top: 0;
+                margin-bottom: 8px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+        </style>
+        <div class="school-bus-box">
+            <h3>🚌 學校集體旅遊巴安排 (首選)</h3>
+            <p><strong>集合地點：</strong> 學校操場<br>
+            <strong>出發時間：</strong> 請各班同學準時於指定時間集合，旅遊巴將直達清水灣郊野公園停車場。下車後，跟隨老師指示步行約 5-10 分鐘即可到達大草地野餐區。</p>
+        </div>
+
+        <p style="color: #666; font-style: italic;">⚠️ 註：以下公共交通資訊僅供個別遲到、提早離隊或自行往返的同學參考：</p>
+        <ul>
+            <li><strong>九巴 91 號：</strong> 於將軍澳港鐵站 / 坑口港鐵站搭乘，在「大坳門」站下車。隨後需沿清水灣郊野公園路（上坡路）步行約 20 分鐘到達草地。</li>
+            <li><strong>專線小巴 103M 號：</strong> 於坑口站總站搭乘，同樣在「大坳門」路口下車，沿大坳門路步行進入。</li>
+        </ul>
+    </div>
 `;
 
 // ==========================================
