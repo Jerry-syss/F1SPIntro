@@ -1,2 +1,2 @@
 # F1SPIntro
-This URL is for SYSS F1 students use.
+This GitHuh page is for singyin form one student to go to picnic use.
