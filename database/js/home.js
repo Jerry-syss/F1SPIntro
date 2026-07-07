@@ -304,7 +304,7 @@ var calc = globalSubPageStyle + sidebarHTML + `
 var url = globalSubPageStyle + sidebarHTML + `
     <div class="content-box">
         <h1>系統資料及解難 📄</h1>
-        <p>歡迎使用西貢崇真天主教學校（SYSS）中一野餐資訊系統。本網頁為純前端動態單頁面（SPA）架構，旨在為同學提供最流暢快捷的資訊查閱體驗。</p>
+        <p>歡迎使用聖言中學（SYSS）中一野餐資訊系統。本網頁為純前端動態單頁面（SPA）架構，旨在為同學提供最流暢快捷的資訊查閱體驗。</p>
         
         <h2>❓ 常見問題與解決方法</h2>
         
