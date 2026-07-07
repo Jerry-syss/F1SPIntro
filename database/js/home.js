@@ -1,9 +1,11 @@
 // ==========================================
-// 1. 首頁 (Home)
+// 🌟 全局子頁面共用 CSS 樣式
+// (將所有頁面的 CSS 集中在這裡，保持 HTML 乾淨)
 // ==========================================
-var home = `
+var globalSubPageStyle = `
     <style>
-        h1 {
+        /* 1. 首頁專用樣式 */
+        .home-title {
             text-align: center;
             margin: 35px 0 10px 0;
         }
@@ -13,49 +15,20 @@ var home = `
             font-size: 0.9rem;
             margin-bottom: 20px;
         }
-    </style>
 
-    <h1>SYSS 中一野餐介紹</h1>
-    <div id="time-container">⏳ 當前時間：<span id="time">載入中...</span></div>
-    <img src="database/other/syss.png" alt="error:404|School Logo">
-    
-    <button type="button" onclick="pageChange('i');titleChange('i');">大坳門資料 📑</button>
-    <button type="button" onclick="pageChange('b');titleChange('b');">BBQ 資料 🔥</button>
-    <button type="button" onclick="pageChange('m');titleChange('m');">價格參考 💰</button>
-    <button type="button" onclick="pageChange('c');titleChange('c');">計算機 📱</button>
-    <button type="button" onclick="pageChange('u');titleChange('u');">系統資料及解難 📄</button>
-`;
-
-// ==========================================
-// 🌟 共享的側邊欄組件 (避免每個頁面重複寫一堆 HTML)
-// ==========================================
-var sidebarHTML = `
-    <div id="sidebar">
-        <button type="button" onclick="pageChange('h');titleChange('h');"><span>🏠</span><span class="hoverShowWords">首頁</span></button>
-        <button type="button" onclick="pageChange('i');titleChange('i');"><span>📑</span><span class="hoverShowWords">大坳門資料</span></button>
-        <button type="button" onclick="pageChange('b');titleChange('b');"><span>🔥</span><span class="hoverShowWords">BBQ 資料</span></button>
-        <button type="button" onclick="pageChange('m');titleChange('m');"><span>💰</span><span class="hoverShowWords">價格參考</span></button>
-        <button type="button" onclick="pageChange('c');titleChange('c');"><span>📱</span><span class="hoverShowWords">計算機</span></button>
-        <button type="button" onclick="pageChange('u');titleChange('u');"><span>📄</span><span class="hoverShowWords">系統解難</span></button>
-    </div>
-`;
-
-// ==========================================
-// 🌟 內嵌的側邊欄專用樣式 (讓所有子頁面共用)
-// ==========================================
-var subPageStyle = `
-    <style>
+        /* 2. 子頁面通用排版 */
         .content-box {
             margin-left: 90px;
             padding: 20px;
             max-width: 800px;
         }
-        h1 { margin-bottom: 20px; color: #003366; }
-        h2 { margin: 20px 0 10px 0; color: #333; font-size: 1.3rem; border-bottom: 2px solid #003366; padding-bottom: 5px; }
-        p { line-height: 1.6; color: #444; margin-bottom: 15px; }
-        ul { margin-left: 20px; margin-bottom: 15px; line-height: 1.6; color: #444; }
-        
-        /* 側邊欄懸停展開邏輯優化 */
+        .content-box h1 { margin-bottom: 20px; color: #003366; }
+        .content-box h2 { margin: 20px 0 10px 0; color: #333; font-size: 1.3rem; border-bottom: 2px solid #003366; padding-bottom: 5px; }
+        .content-box p { line-height: 1.6; color: #444; margin-bottom: 15px; }
+        .content-box ul { margin-left: 20px; margin-bottom: 15px; line-height: 1.6; color: #444; }
+        .intro-img { max-width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+
+        /* 3. 側邊欄懸停展開邏輯 */
         #sidebar {
             position: fixed;
             left: 15px;
@@ -101,8 +74,47 @@ var subPageStyle = `
         #sidebar button:hover .hoverShowWords {
             display: inline;
         }
+
+        /* 4. 大坳門旅遊巴橫幅 */
+        .school-bus-box {
+            background: #e6f7ff;
+            border: 2px dashed #1890ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .school-bus-box h3 {
+            color: #0050b3;
+            margin-top: 0;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* 5. 價格參考表格 */
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .price-table th, .price-table td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd; }
+        .price-table th { background-color: #003366; color: white; }
+        .price-table tr:hover { background-color: #f9f9f9; }
+
+        /* 6. 計算機卡片 */
+        .calc-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-top: 20px; }
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #003366; }
+        .input-group input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; }
+        .result-box { background: #eef5fc; padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 5px solid #003366; }
+        .result-box p { margin-bottom: 8px; font-size: 1.05rem; }
         
-        /* 手機板響應式優化：側邊欄變到上方頂部 */
+        /* 7. 手機板響應式優化 */
         @media screen and (max-width: 600px) {
             .content-box { margin-left: 15px; margin-top: 70px; }
             #sidebar { flex-direction: row; top: 10px; left: 10px; width: calc(100% - 20px); height: 50px; }
@@ -114,13 +126,42 @@ var subPageStyle = `
 `;
 
 // ==========================================
-// 2. 簡介頁面 (Introduction) - 詳細旅遊巴修訂版
+// 1. 首頁 (Home) - 純 HTML
 // ==========================================
-var intro = subPageStyle + sidebarHTML + `
+var home = globalSubPageStyle + `
+    <h1 class="home-title">SYSS 中一野餐介紹</h1>
+    <div id="time-container">⏳ 當前時間：<span id="time">載入中...</span></div>
+    <img src="database/other/syss.png" alt="error:404|School Logo">
+    
+    <button type="button" onclick="pageChange('i');titleChange('i');">大坳門資料 📑</button>
+    <button type="button" onclick="pageChange('b');titleChange('b');">BBQ 資料 🔥</button>
+    <button type="button" onclick="pageChange('m');titleChange('m');">價格參考 💰</button>
+    <button type="button" onclick="pageChange('c');titleChange('c');">計算機 📱</button>
+    <button type="button" onclick="pageChange('u');titleChange('u');">系統資料及解難 📄</button>
+`;
+
+// ==========================================
+// 🌟 共享的側邊欄組件 - 純 HTML
+// ==========================================
+var sidebarHTML = `
+    <div id="sidebar">
+        <button type="button" onclick="pageChange('h');titleChange('h');"><span>🏠</span><span class="hoverShowWords">首頁</span></button>
+        <button type="button" onclick="pageChange('i');titleChange('i');"><span>📑</span><span class="hoverShowWords">大坳門資料</span></button>
+        <button type="button" onclick="pageChange('b');titleChange('b');"><span>🔥</span><span class="hoverShowWords">BBQ 資料</span></button>
+        <button type="button" onclick="pageChange('m');titleChange('m');"><span>💰</span><span class="hoverShowWords">價格參考</span></button>
+        <button type="button" onclick="pageChange('c');titleChange('c');"><span>📱</span><span class="hoverShowWords">計算機</span></button>
+        <button type="button" onclick="pageChange('u');titleChange('u');"><span>📄</span><span class="hoverShowWords">系統解難</span></button>
+    </div>
+`;
+
+// ==========================================
+// 2. 簡介頁面 (Introduction) - 純 HTML
+// ==========================================
+var intro = globalSubPageStyle + sidebarHTML + `
     <div class="content-box">
         <h1>清水灣大坳門資料 📑</h1>
         
-        <img src="database/other/taiaomun.jpeg" alt="大坳門風箏場草地" style="max-width:100%; height:auto; border-radius:10px; margin-bottom:20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <img src="database/other/taiaomun.jpg" alt="大坳門風箏場草地" class="intro-img">
 
         <p>大坳門位於清水灣郊野公園內，是香港著名的放風箏、野餐、郊遊及觀星勝地。這裡被群山環抱，面向浩瀚的南中國海，擁有廣闊的高山大草地，全海景景致讓人心曠神怡，非常適合我們中一級同學進行集體活動與野餐！</p>
         
@@ -138,30 +179,13 @@ var intro = subPageStyle + sidebarHTML + `
 
         <h2>🚌 交通指南</h2>
         
-        <style>
-            .school-bus-box {
-                background: #e6f7ff;
-                border: 2px dashed #1890ff;
-                border-radius: 8px;
-                padding: 15px;
-                margin-bottom: 20px;
-            }
-            .school-bus-box h3 {
-                color: #0050b3;
-                margin-top: 0;
-                margin-bottom: 8px;
-                display: flex;
-                align-items: center;
-                gap: 5px;
-            }
-        </style>
         <div class="school-bus-box">
             <h3>🚌 學校集體旅遊巴安排 (首選)</h3>
             <p><strong>集合地點：</strong> 學校操場<br>
             <strong>出發時間：</strong> 請各班同學準時於指定時間集合，旅遊巴將直達清水灣郊野公園停車場。下車後，跟隨老師指示步行約 5-10 分鐘即可到達大草地野餐區。</p>
         </div>
 
-        <p style="color: #666; font-style: italic;">⚠️ 註：以下公共交通資訊僅供提早離隊或自行往返的同學參考：</p>
+        <p style="color: #666; font-style: italic;">⚠️ 註：以下公共交通資訊僅供個別遲到、提早離隊或自行往返的同學參考：</p>
         <ul>
             <li><strong>九巴 91 號：</strong> 於將軍澳港鐵站 / 坑口港鐵站搭乘，在「大坳門」站下車。隨後需沿清水灣郊野公園路（上坡路）步行約 20 分鐘到達草地。</li>
             <li><strong>專線小巴 103M 號：</strong> 於坑口站總站搭乘，同樣在「大坳門」路口下車，沿大坳門路步行進入。</li>
@@ -170,9 +194,9 @@ var intro = subPageStyle + sidebarHTML + `
 `;
 
 // ==========================================
-// 3. 燒烤資料 (BBQ)
+// 3. 燒烤資料 (BBQ) - 純 HTML
 // ==========================================
-var bbq = subPageStyle + sidebarHTML + `
+var bbq = globalSubPageStyle + sidebarHTML + `
     <div class="content-box">
         <h1>BBQ 燒烤安排 🔥</h1>
         <p>中一級野餐的焦點活動之一就是燒烤聯歡！以下是各組需要注意的物資與場地安排。</p>
@@ -186,7 +210,7 @@ var bbq = subPageStyle + sidebarHTML + `
 
         <h2>📦 必備核心物資</h2>
         <ul>
-            <li>燒烤炭（每組建議 2-3 包）、炭精（起火用）、打火機/火機油。</li>
+            <li>燒烤炭（每組建議 2-3 包）、炭精（起火用）、打火機/火機油.</li>
             <li>燒烤叉（每人一支）、錫紙、紙盤、紙杯、膠叉、紙巾及濕紙巾。</li>
             <li>蜜糖、燒烤汁、刷子。</li>
             <li><strong>環保必備：</strong> 垃圾袋（離開前必須清理乾淨場地）。</li>
@@ -195,21 +219,14 @@ var bbq = subPageStyle + sidebarHTML + `
 `;
 
 // ==========================================
-// 4. 價格參考 (Money)
+// 4. 價格參考 (Money) - 純 HTML
 // ==========================================
-var money = subPageStyle + sidebarHTML + `
+var money = globalSubPageStyle + sidebarHTML + `
     <div class="content-box">
         <h1>野餐預算及價格參考 💰</h1>
         <p>為了方便各組長收費及規劃預算，以下提供市場常見的野餐與燒烤物資參考價格：</p>
         
-        <style>
-            table { width: 100%; border-collapse: collapse; margin-top: 15px; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-            th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd; }
-            th { background-color: #003366; color: white; }
-            tr:hover { background-color: #f9f9f9; }
-        </style>
-
-        <table>
+        <table class="price-table">
             <thead>
                 <tr>
                     <th>項目</th>
@@ -231,22 +248,13 @@ var money = subPageStyle + sidebarHTML + `
 `;
 
 // ==========================================
-// 5. 自動計算機 (Calculator)
+// 5. 自動計算機 (Calculator) - 純 HTML
 // ==========================================
-var calc = subPageStyle + sidebarHTML + `
+var calc = globalSubPageStyle + sidebarHTML + `
     <div class="content-box">
         <h1>野餐物資 & 預算計算機 📱</h1>
         <p>輸入你們小組的人數，系統會自動幫你估算大概需要的物資份量以及每人的平均預算！</p>
         
-        <style>
-            .calc-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-top: 20px; }
-            .input-group { margin-bottom: 15px; }
-            .input-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #003366; }
-            .input-group input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; }
-            .result-box { background: #eef5fc; padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 5px solid #003366; }
-            .result-box p { margin-bottom: 8px; font-size: 1.05rem; }
-        </style>
-
         <div class="calc-card">
             <div class="input-group">
                 <label for="peopleCount">請輸入小組人數：</label>
@@ -286,15 +294,14 @@ var calc = subPageStyle + sidebarHTML + `
             document.getElementById('res-total').innerText = totalCost;
             document.getElementById('res-perperson').innerText = perPerson;
         }
-        // 確保切換到本頁時能立即計算一次
         setTimeout(calculatePicnic, 100);
     </script>
 `;
 
 // ==========================================
-// 6. 系統資料及解難 (URL)
+// 6. 系統資料及解難 (URL) - 純 HTML
 // ==========================================
-var url = subPageStyle + sidebarHTML + `
+var url = globalSubPageStyle + sidebarHTML + `
     <div class="content-box">
         <h1>系統資料及解難 📄</h1>
         <p>歡迎使用西貢崇真天主教學校（SYSS）中一野餐資訊系統。本網頁為純前端動態單頁面（SPA）架構，旨在為同學提供最流暢快捷的資訊查閱體驗。</p>
