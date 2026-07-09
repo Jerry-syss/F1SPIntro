@@ -2,7 +2,7 @@
 // 🌟 全局子頁面共用 CSS 樣式
 // (將所有頁面的 CSS 集中在這裡，保持 HTML 乾淨)
 // ==========================================
-var globalSubPageStyle = `
+const globalSubPageStyle = `
     <style>
         /* 1. 首頁專用樣式 */
         .home-title {
@@ -128,7 +128,7 @@ var globalSubPageStyle = `
 // ==========================================
 // 1. 首頁 (Home) - 純 HTML
 // ==========================================
-var home = globalSubPageStyle + `
+const home = globalSubPageStyle + `
     <h1 class="home-title">SYSS 中一野餐介紹</h1>
     <div id="time-container">⏳ 當前時間：<span id="time">載入中...</span></div>
     <img src="database/other/syss.png" alt="error:404|School Logo">
@@ -143,7 +143,7 @@ var home = globalSubPageStyle + `
 // ==========================================
 // 🌟 共享的側邊欄組件 - 純 HTML
 // ==========================================
-var sidebarHTML = `
+const sidebarHTML = `
     <div id="sidebar">
         <button type="button" onclick="pageChange('h');titleChange('h');"><span>🏠</span><span class="hoverShowWords">首頁</span></button>
         <button type="button" onclick="pageChange('i');titleChange('i');"><span>📑</span><span class="hoverShowWords">大坳門資料</span></button>
@@ -157,7 +157,7 @@ var sidebarHTML = `
 // ==========================================
 // 2. 簡介頁面 (Introduction) - 純 HTML
 // ==========================================
-var intro = globalSubPageStyle + sidebarHTML + `
+const intro = globalSubPageStyle + sidebarHTML + `
     <div class="content-box">
         <h1>清水灣大坳門資料 📑</h1>
         
@@ -196,7 +196,7 @@ var intro = globalSubPageStyle + sidebarHTML + `
 // ==========================================
 // 3. 燒烤資料 (BBQ) - 純 HTML
 // ==========================================
-var bbq = globalSubPageStyle + sidebarHTML + `
+const bbq = globalSubPageStyle + sidebarHTML + `
     <div class="content-box">
         <h1>BBQ 燒烤安排 🔥</h1>
         <p>中一級野餐的焦點活動之一就是燒烤聯歡！以下是各組需要注意的物資與場地安排。</p>
@@ -221,7 +221,7 @@ var bbq = globalSubPageStyle + sidebarHTML + `
 // ==========================================
 // 4. 價格參考 (Money) - 純 HTML
 // ==========================================
-var money = globalSubPageStyle + sidebarHTML + `
+const money = globalSubPageStyle + sidebarHTML + `
     <div class="content-box">
         <h1>野餐預算及價格參考 💰</h1>
         <p>為了方便各組長收費及規劃預算，以下提供市場常見的野餐與燒烤物資參考價格：</p>
@@ -250,7 +250,7 @@ var money = globalSubPageStyle + sidebarHTML + `
 // ==========================================
 // 5. 自動計算機 (Calculator) - 純 HTML
 // ==========================================
-var calc = globalSubPageStyle + sidebarHTML + `
+const calc = globalSubPageStyle + sidebarHTML + `
     <div class="content-box">
         <h1>野餐物資 & 預算計算機 📱</h1>
         <p>輸入你們小組的人數，系統會自動幫你估算大概需要的物資份量以及每人的平均預算！</p>
@@ -301,7 +301,7 @@ var calc = globalSubPageStyle + sidebarHTML + `
 // ==========================================
 // 6. 系統資料及解難 (URL) - 純 HTML
 // ==========================================
-var url = globalSubPageStyle + sidebarHTML + `
+const url = globalSubPageStyle + sidebarHTML + `
     <div class="content-box">
         <h1>系統資料及解難 📄</h1>
         <p>歡迎使用聖言中學（SYSS）中一野餐資訊系統。本網頁為純前端動態單頁面（SPA）架構，旨在為同學提供最流暢快捷的資訊查閱體驗。</p>
