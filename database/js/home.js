@@ -316,7 +316,7 @@ const url = globalSubPageStyle + sidebarHTML + `
 
         <h2>🔗 實用外部連結</h2>
         <ul>
-            <li><a href="https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cou/cou_vis_cou_cp/cou_vis_cou_cp.html" target="_blank" style="color:#003366; text-decoration:underline;">👉 漁護署 - 清水灣郊野公園官方網頁</a></li>
+            <li><a href="https://www.afcd.gov.hk/tc_chi/country/cou_vis/cou_vis_cou/cou_vis_cou_cwb/cou_vis_cou_cwb.html" target="_blank" style="color:#003366; text-decoration:underline;">👉 漁護署 - 清水灣郊野公園官方網頁</a></li>
             <li><a href="https://maps.google.com" target="_blank" style="color:#003366; text-decoration:underline;">👉 Google 地圖 (可搜尋「大坳門風箏場」規劃路線)</a></li>
         </ul>
     </div>
