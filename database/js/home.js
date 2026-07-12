@@ -161,7 +161,7 @@ const intro = globalSubPageStyle + sidebarHTML + `
     <div class="content-box">
         <h1>清水灣大坳門資料 📑</h1>
         
-        <img src="database/other/taiaomun.jpg" alt="大坳門風箏場草地" class="intro-img">
+        <img src="database/other/taiaomun.jpeg" alt="大坳門風箏場草地" class="intro-img">
 
         <p>大坳門位於清水灣郊野公園內，是香港著名的放風箏、野餐、郊遊及觀星勝地。這裡被群山環抱，面向浩瀚的南中國海，擁有廣闊的高山大草地，全海景景致讓人心曠神怡，非常適合我們中一級同學進行集體活動與野餐！</p>
         
